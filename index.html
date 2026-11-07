@@ -208,6 +208,10 @@
       .work-card ul li::before { content: "— "; color: var(--accent); }
       .work-card a.watch { margin-top: auto; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
       .work-card a.watch:hover { opacity: 0.65; }
+      .work-card .embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+      .work-card .embed.short { aspect-ratio: 9 / 16; max-width: 270px; margin: 0 auto; }
+      .work-card .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .work-card .embed-cap { font-size: 13px; color: var(--muted); margin: 0; }
 
       .price-note { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 28px; }
       .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
@@ -346,6 +350,8 @@
               <li>Word-level karaoke subtitles, force-aligned to the actual voice track</li>
               <li>Poster-style thumbnails designed to be clicked, not decorated</li>
             </ul>
+            <div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/gvoZh6Qc3h8" title="Lương Sơn Bá – Chúc Anh Đài (Butterfly Lovers) — full episode, Chuyện Kể Trung Hoa" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="embed-cap">▶ Watch a full episode here — the Butterfly Lovers legend, produced end-to-end by me.</p>
             <a class="watch" href="https://www.youtube.com/@ChuyenKeTrungHoa" target="_blank" rel="noopener">Watch the channel ↗</a>
           </article>
           <article class="work-card">
@@ -357,6 +363,8 @@
               <li>100% spelling QC pass before anything ships</li>
               <li>Batch production: series of 15 delivered as one clean package</li>
             </ul>
+            <div class="embed short"><iframe src="https://www.youtube-nocookie.com/embed/IO27M5yo90o" title="Pocket English Daily — Halloween Short: It Gives Me the Creeps" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+            <p class="embed-cap">▶ From the Halloween series — “It gives me the creeps”, produced and scheduled by me.</p>
             <a class="watch" href="https://www.youtube.com/@PocketEnglishDaily" target="_blank" rel="noopener">Watch the channel ↗</a>
           </article>
         </div>
