@@ -438,8 +438,34 @@
       </section>
 
       <!-- process -->
+
+      <!-- order / account -->
+      <section class="wrap" id="order">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Order &amp; pay — in two minutes</h2></div>
+        <p class="sec-sub">Pick a package, pay by PayPal, drop your brief. Your details are saved on this device as your client account, so reordering takes seconds. The form also sends your order straight to my inbox — I confirm within 12 hours (GMT+7).</p>
+        <p id="acctBanner" style="display:none;margin:0 0 14px;font-size:0.95em;"></p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px;">
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/3USD" target="_blank" rel="noopener">Pay $3 — Trial video</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/8USD" target="_blank" rel="noopener">Pay $8 — Standard</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/12USD" target="_blank" rel="noopener">Pay $12 — Long-form</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/36USD" target="_blank" rel="noopener">Pay $36 — 12 Shorts</a>
+        </div>
+        <form id="orderForm" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;">
+          <label style="display:block;font-size:0.9em;">Your name *<br><input id="oName" required style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">Email *<br><input id="oEmail" type="email" required style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">YouTube channel URL<br><input id="oChannel" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">Package<br><select id="oPackage" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;">
+            <option>Trial — first complete video · $3</option><option>Standard video · $8</option><option>Long-form video · $12</option><option>Shorts — batch of 12 · $36</option><option>Ongoing / retainer — quote me</option>
+          </select></label>
+          <label style="display:block;font-size:0.9em;grid-column:1 / -1;">Topic / brief<br><textarea id="oBrief" rows="4" placeholder="Topic, niche, a reference video you like, target length…" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></textarea></label>
+          <div style="grid-column:1 / -1;"><button class="pill pill-solid" type="submit">Place order &amp; save my account</button></div>
+          <p id="orderStatus" style="grid-column:1 / -1;margin:4px 0 0;font-size:0.92em;"></p>
+          <p style="grid-column:1 / -1;margin:0;font-size:0.88em;opacity:0.85;">Form not going through? Email the same details to <a href="mailto:daichunghy@gmail.com">daichunghy@gmail.com</a></p>
+        </form>
+      </section>
+
       <section class="wrap" id="process">
-        <div class="sec-head"><span class="sec-num">03</span><h2>How a job runs</h2></div>
+        <div class="sec-head"><span class="sec-num">04</span><h2>How a job runs</h2></div>
         <p class="sec-sub">Fixed scope, fixed price, no surprises. You approve the script before I spend a minute on visuals — that's where videos are won or lost.</p>
         <div class="steps">
           <div class="step"><span class="n">Step 1</span><h3>You send the brief</h3><p>Niche, topic, a reference channel you like, target length. Ten minutes of your time, tops.</p></div>
@@ -451,7 +477,7 @@
 
       <!-- how I bid -->
       <section class="wrap" id="bidding">
-        <div class="sec-head"><span class="sec-num">04</span><h2>How I win your job</h2></div>
+        <div class="sec-head"><span class="sec-num">05</span><h2>How I win your job</h2></div>
         <p class="sec-sub">Straight about it: I bid low on the first job, on purpose. Here's the exact playbook — so you know what you're getting and why it's priced this way.</p>
         <div class="pitch-list">
           <div class="pitch-row">
@@ -481,7 +507,7 @@ Start me with a $3 trial (up to 8 min) as milestone 1. If it doesn't beat what y
 
       <!-- faq -->
       <section class="wrap" id="faq">
-        <div class="sec-head"><span class="sec-num">05</span><h2>Fair questions</h2></div>
+        <div class="sec-head"><span class="sec-num">06</span><h2>Fair questions</h2></div>
         <p class="sec-sub">The things clients actually ask before the first order.</p>
         <div class="faq">
           <details class="faq-item">
@@ -652,5 +678,39 @@ Start me with a $3 trial (up to 8 min) as milestone 1. If it doesn't beat what y
         btnVnd.addEventListener('click', function () { setCurrency(true); });
       })();
     </script>
-  </body>
+  
+  <script>
+  (function(){
+    var T = {welcome: 'Welcome back,', acct_ready: 'your client account on this device is ready — the form is pre-filled.', sending: 'Sending your order…', sent_ok: 'Order received — I will confirm by email within 12 hours. To start right away, complete payment with the PayPal buttons above and mention your email in the payment note.', sent_fail: 'The form could not be sent automatically. Please email your order to'};
+    function $(id){ return document.getElementById(id); }
+    try {
+      var acct = JSON.parse(localStorage.getItem('benAccount') || 'null');
+      if (acct && acct.name) {
+        if ($('oName')) $('oName').value = acct.name || '';
+        if ($('oEmail')) $('oEmail').value = acct.email || '';
+        if ($('oChannel')) $('oChannel').value = acct.channel || '';
+        var b = $('acctBanner');
+        if (b) { b.textContent = T.welcome + ' ' + acct.name + ' — ' + T.acct_ready; b.style.display = 'block'; }
+      }
+    } catch(e) {}
+    var form = $('orderForm');
+    if (form) form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var data = { name: $('oName').value.trim(), email: $('oEmail').value.trim(), channel: $('oChannel').value.trim(), pkg: $('oPackage').value, brief: $('oBrief').value.trim() };
+      try {
+        localStorage.setItem('benAccount', JSON.stringify({name: data.name, email: data.email, channel: data.channel}));
+        var orders = JSON.parse(localStorage.getItem('benOrders') || '[]');
+        orders.push({at: new Date().toISOString(), pkg: data.pkg, brief: data.brief});
+        localStorage.setItem('benOrders', JSON.stringify(orders));
+      } catch(e) {}
+      var st = $('orderStatus'); st.textContent = T.sending;
+      fetch('https://formsubmit.co/ajax/daichunghy@gmail.com', {
+        method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({_subject: 'New order — ' + data.pkg, name: data.name, email: data.email, _replyto: data.email, channel: data.channel, package: data.pkg, brief: data.brief})
+      }).then(function(r){ if (!r.ok) throw new Error('bad'); st.textContent = T.sent_ok; })
+        .catch(function(){ st.textContent = T.sent_fail + ' daichunghy@gmail.com'; });
+    });
+  })();
+  </script>
+</body>
 </html>

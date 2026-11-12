@@ -440,8 +440,34 @@
       </section>
 
       <!-- process -->
+
+      <!-- order / account -->
+      <section class="wrap" id="order">
+        <div class="sec-head"><span class="sec-num">03</span><h2>下单与付款 — 两分钟完成</h2></div>
+        <p class="sec-sub">选择套餐，用 PayPal 付款，留下需求说明。您的信息会保存在本设备上作为客户账户，下次下单只需几秒。表单也会把订单直接发送到我的邮箱 — 我会在 12 小时内（GMT+7）确认。</p>
+        <p id="acctBanner" style="display:none;margin:0 0 14px;font-size:0.95em;"></p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px;">
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/3USD" target="_blank" rel="noopener">支付 $3 — 试做视频</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/8USD" target="_blank" rel="noopener">支付 $8 — 标准视频</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/12USD" target="_blank" rel="noopener">支付 $12 — 长片</a>
+          <a class="pill pill-solid" href="https://www.paypal.com/paypalme/daichunghy/36USD" target="_blank" rel="noopener">支付 $36 — 12 条 Shorts</a>
+        </div>
+        <form id="orderForm" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;">
+          <label style="display:block;font-size:0.9em;">您的姓名 *<br><input id="oName" required style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">邮箱 *<br><input id="oEmail" type="email" required style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">YouTube 频道链接<br><input id="oChannel" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></label>
+          <label style="display:block;font-size:0.9em;">套餐<br><select id="oPackage" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;">
+            <option>试做 — 首条完整视频 · $3</option><option>标准视频 · $8</option><option>长片视频 · $12</option><option>Shorts — 12 条套餐 · $36</option><option>长期合作 / 包月 — 请报价</option>
+          </select></label>
+          <label style="display:block;font-size:0.9em;grid-column:1 / -1;">选题 / 需求说明<br><textarea id="oBrief" rows="4" placeholder="选题、领域、您喜欢的参考视频、目标时长…" style="width:100%;margin-top:6px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:inherit;"></textarea></label>
+          <div style="grid-column:1 / -1;"><button class="pill pill-solid" type="submit">提交订单并保存账户</button></div>
+          <p id="orderStatus" style="grid-column:1 / -1;margin:4px 0 0;font-size:0.92em;"></p>
+          <p style="grid-column:1 / -1;margin:0;font-size:0.88em;opacity:0.85;">表单发送失败？请把相同信息发邮件到 <a href="mailto:daichunghy@gmail.com">daichunghy@gmail.com</a></p>
+        </form>
+      </section>
+
       <section class="wrap" id="process">
-        <div class="sec-head"><span class="sec-num">03</span><h2>合作流程</h2></div>
+        <div class="sec-head"><span class="sec-num">04</span><h2>合作流程</h2></div>
         <p class="sec-sub">范围固定、价格固定、没有意外。画面动手之前，先请您确认脚本——视频的成败就在这一步。</p>
         <div class="steps">
           <div class="step"><span class="n">第 1 步</span><h3>您发需求</h3><p>领域、选题、一个您喜欢的参考频道、目标时长。最多花您十分钟。</p></div>
@@ -453,7 +479,7 @@
 
       <!-- how I bid -->
       <section class="wrap" id="bidding">
-        <div class="sec-head"><span class="sec-num">04</span><h2>我怎么接下您的单</h2></div>
+        <div class="sec-head"><span class="sec-num">05</span><h2>我怎么接下您的单</h2></div>
         <p class="sec-sub">实话实说：第一单，我故意报低价。打法全写在这里——您清楚自己买的是什么，也清楚为什么是这个价。</p>
         <div class="pitch-list">
           <div class="pitch-row">
@@ -483,7 +509,7 @@
 
       <!-- faq -->
       <section class="wrap" id="faq">
-        <div class="sec-head"><span class="sec-num">05</span><h2>常见问题</h2></div>
+        <div class="sec-head"><span class="sec-num">06</span><h2>常见问题</h2></div>
         <p class="sec-sub">客户下第一单之前，真正会问的问题。</p>
         <div class="faq">
           <details class="faq-item">
@@ -654,5 +680,39 @@
         btnVnd.addEventListener('click', function () { setCurrency(true); });
       })();
     </script>
-  </body>
+  
+  <script>
+  (function(){
+    var T = {welcome: '欢迎回来，', acct_ready: '您在本设备上的客户账户已就绪 — 表单已自动填好。', sending: '正在发送订单…', sent_ok: '已收到订单 — 我会在 12 小时内通过邮件确认。如需立即开始，请用上方 PayPal 按钮付款，并在付款备注中写上您的邮箱。', sent_fail: '表单无法自动发送。请把订单发邮件到'};
+    function $(id){ return document.getElementById(id); }
+    try {
+      var acct = JSON.parse(localStorage.getItem('benAccount') || 'null');
+      if (acct && acct.name) {
+        if ($('oName')) $('oName').value = acct.name || '';
+        if ($('oEmail')) $('oEmail').value = acct.email || '';
+        if ($('oChannel')) $('oChannel').value = acct.channel || '';
+        var b = $('acctBanner');
+        if (b) { b.textContent = T.welcome + ' ' + acct.name + ' — ' + T.acct_ready; b.style.display = 'block'; }
+      }
+    } catch(e) {}
+    var form = $('orderForm');
+    if (form) form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var data = { name: $('oName').value.trim(), email: $('oEmail').value.trim(), channel: $('oChannel').value.trim(), pkg: $('oPackage').value, brief: $('oBrief').value.trim() };
+      try {
+        localStorage.setItem('benAccount', JSON.stringify({name: data.name, email: data.email, channel: data.channel}));
+        var orders = JSON.parse(localStorage.getItem('benOrders') || '[]');
+        orders.push({at: new Date().toISOString(), pkg: data.pkg, brief: data.brief});
+        localStorage.setItem('benOrders', JSON.stringify(orders));
+      } catch(e) {}
+      var st = $('orderStatus'); st.textContent = T.sending;
+      fetch('https://formsubmit.co/ajax/daichunghy@gmail.com', {
+        method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({_subject: 'New order — ' + data.pkg, name: data.name, email: data.email, _replyto: data.email, channel: data.channel, package: data.pkg, brief: data.brief})
+      }).then(function(r){ if (!r.ok) throw new Error('bad'); st.textContent = T.sent_ok; })
+        .catch(function(){ st.textContent = T.sent_fail + ' daichunghy@gmail.com'; });
+    });
+  })();
+  </script>
+</body>
 </html>
