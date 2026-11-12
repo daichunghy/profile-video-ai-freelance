@@ -706,11 +706,13 @@
         localStorage.setItem('benOrders', JSON.stringify(orders));
       } catch(e) {}
       var st = $('orderStatus'); st.textContent = T.sending;
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 10000);
       fetch('https://formsubmit.co/ajax/daichunghy@gmail.com', {
-        method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-        body: JSON.stringify({_subject: 'New order — ' + data.pkg, name: data.name, email: data.email, _replyto: data.email, channel: data.channel, package: data.pkg, brief: data.brief})
-      }).then(function(r){ if (!r.ok) throw new Error('bad'); st.textContent = T.sent_ok; })
-        .catch(function(){ st.textContent = T.sent_fail + ' daichunghy@gmail.com'; });
+        method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, signal: ctrl ? ctrl.signal : undefined,
+        body: JSON.stringify({_subject: 'New order — ' + data.pkg, _captcha: 'false', _template: 'table', name: data.name, email: data.email, _replyto: data.email, channel: data.channel, package: data.pkg, brief: data.brief})
+      }).then(function(r){ clearTimeout(timer); if (!r.ok) throw new Error('bad'); st.textContent = T.sent_ok; })
+        .catch(function(){ clearTimeout(timer); st.textContent = T.sent_fail + ' daichunghy@gmail.com'; });
     });
   })();
   </script>
